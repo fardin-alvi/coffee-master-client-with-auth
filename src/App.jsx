@@ -3,18 +3,6 @@ import { Link, useLoaderData } from 'react-router-dom'
 import './App.css'
 import Coffecard from './component/Coffecard'
 import { useState } from 'react'
-import icon1 from './assets/icons/1.png'
-import icon2 from './assets/icons/2.png'
-import icon3 from './assets/icons/3.png'
-import icon4 from './assets/icons/4.png'
-import cup1 from './assets/cups/Rectangle 9.png'
-import cup2 from './assets/cups/Rectangle 10.png'
-import cup3 from './assets/cups/Rectangle 11.png'
-import cup4 from './assets/cups/Rectangle 12.png'
-import cup5 from './assets/cups/Rectangle 13.png'
-import cup6 from './assets/cups/Rectangle 14.png'
-import cup7 from './assets/cups/Rectangle 15.png'
-import cup8 from './assets/cups/Rectangle 16.png'
 import Footer from "./component/Footer";
 import Navbar from "./component/Navbar";
 
@@ -42,22 +30,22 @@ function App() {
       </div>
       <div className=' bg-[#ECEAE3] grid grid-cols-2 gap-4 md:grid-cols-4 px-4 py-6 md:py-8 md:px-16'>
         <div className='space-y-1'>
-          <img src={icon1} className='w-12 h-12' alt="" />
+          <img src='/public/images/icons/1.png' className='w-12 h-12' alt="" />
           <p>Awesome Aroma</p>
           <p className='w-56'>You will definitely be a fan of the design & aroma of your coffee</p>
         </div>
         <div className='space-y-1'>
-          <img src={icon2} className='w-12 h-12' alt="" />
+          <img src='/public/images/icons/2.png' className='w-12 h-12' alt="" />
           <p>High Quality</p>
           <p className='w-56'>We served the coffee to you maintaining the best quality</p>
         </div>
         <div className='space-y-1'>
-          <img src={icon3} className='w-12 h-12' alt="" />
+          <img src='/public/images/icons/3.png' className='w-12 h-12' alt="" />
           <p>Pure Grades</p>
           <p className='w-56'>The coffee is made of the green coffee beans which you will love</p>
         </div>
         <div className='space-y-1'>
-          <img src={icon4} className='w-12 h-12' alt="" />
+          <img src='/public/images/icons/4.png' className='w-12 h-12' alt="" />
           <p>Proper Rosting</p>
           <p className='w-56'>Your coffee is brewed by first roasting the green coffee beans</p>
         </div>
@@ -82,14 +70,14 @@ function App() {
           <h1 className='text-3xl text-center'>Follow on Instagram</h1>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 md:w-9/12 gap-2 md:mx-auto mt-10">
-          <img className="object-cover" src={cup1} alt="" />
-          <img className="object-cover" src={cup2} alt="" />
-          <img className="object-cover" src={cup3} alt="" />
-          <img className="object-cover" src={cup4} alt="" />
-          <img className="object-cover" src={cup5} alt="" />
-          <img className="object-cover" src={cup6} alt="" />
-          <img className="object-cover" src={cup7} alt="" />
-          <img className="object-cover" src={cup8} alt="" />
+          <img className="object-cover" src='/public/images/cups/Rectangle 9.png' alt="" />
+          <img className="object-cover" src='/public/images/cups/Rectangle 10.png' alt="" />
+          <img className="object-cover" src='/public/images/cups/Rectangle 11.png' alt="" />
+          <img className="object-cover" src='/public/images/cups/Rectangle 12.png' alt="" />
+          <img className="object-cover" src='/public/images/cups/Rectangle 13.png' alt="" />
+          <img className="object-cover" src='/public/images/cups/Rectangle 14.png' alt="" />
+          <img className="object-cover" src='/public/images/cups/Rectangle 15.png' alt="" />
+          <img className="object-cover" src='/public/images/cups/Rectangle 16.png' alt="" />
         </div>
       </section>
       <footer className="mt-16">

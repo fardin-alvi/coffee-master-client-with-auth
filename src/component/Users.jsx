@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { FaArrowLeftLong } from "react-icons/fa6";
 
 const Users = () => {
     const data = useLoaderData()
@@ -44,6 +45,7 @@ const Users = () => {
             <nav>
                 <Navbar />
             </nav>
+            <Link to='/' className='my-6 w-10/12 mx-auto flex items-center gap-x-2'><FaArrowLeftLong />Back to Home</Link>
             <div className="overflow-x-auto mt-10 w-10/12 mx-auto">
                 <table className="table table-zebra">
                     <thead>

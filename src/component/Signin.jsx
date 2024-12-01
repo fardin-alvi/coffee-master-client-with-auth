@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import Navbar from './Navbar';
 import { AuthContext } from '../AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
+import { FaArrowLeftLong } from 'react-icons/fa6';
 
 const Signin = () => {
     const { createuser } = useContext(AuthContext)
@@ -41,6 +42,7 @@ const Signin = () => {
             <nav>
                 <Navbar />
             </nav>
+            <Link to='/' className='my-6 w-10/12 mx-auto flex items-center gap-x-2'><FaArrowLeftLong />Back to Home</Link>
             <div className="card bg-base-100 w-full mx-auto mt-10 max-w-sm shrink-0 shadow-2xl">
                 <form onSubmit={handlesignin} className="card-body">
                     <div className="form-control">

@@ -1,6 +1,5 @@
 import React from 'react';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
-import headerImage from '../assets/more/logo1.png'
 
 const Footer = () => {
     return (
@@ -8,7 +7,7 @@ const Footer = () => {
             <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Left Section */}
                 <div className="space-y-6">
-                    <img className="w-16 h-16" src={headerImage} alt="Logo" />
+                    <img className="w-16 h-16" src='/public/images/more/logo1.png' alt="Logo" />
                     <h2 className="text-2xl font-bold">Espresso Emporium</h2>
                     <p className="text-gray-600">
                         Always ready to be your friend. Come & connect with us to share your

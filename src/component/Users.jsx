@@ -44,11 +44,11 @@ const Users = () => {
             <nav>
                 <Navbar />
             </nav>
-            <div className="overflow-x-auto mt-10 ">
+            <div className="overflow-x-auto mt-10 w-10/12 mx-auto">
                 <table className="table table-zebra">
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>Serial</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Created At</th>
@@ -57,8 +57,8 @@ const Users = () => {
                     </thead>
                     <tbody>
                         {
-                            users.map(user => <tr>
-                                <th>1</th>
+                            users.map((user,index) => <tr key={user._id}>
+                                <th>{index + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{user.createat}</td>

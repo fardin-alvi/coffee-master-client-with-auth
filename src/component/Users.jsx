@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 const Users = () => {
     const data = useLoaderData()
     const [users, setusers] = useState(data)
-    
+
     const handledelete = id => {
         Swal.fire({
             title: "Are you sure?",
@@ -18,13 +18,12 @@ const Users = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/users/${id}`, {
+                fetch(`https://server-side-chi-seven.vercel.app/users/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
                     .then(data => {
                         if (data.deletedCount > 0) {
-                            console.log(data);
                             Swal.fire({
                                 title: "Deleted!",
                                 text: "Your file has been deleted.",
@@ -43,7 +42,7 @@ const Users = () => {
     return (
         <div>
             <nav>
-                <Navbar/>
+                <Navbar />
             </nav>
             <div className="overflow-x-auto mt-10 ">
                 <table className="table table-zebra">

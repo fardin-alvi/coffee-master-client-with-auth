@@ -20,35 +20,35 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
-    errorElement:<Errorpage/>,
-    loader: () => fetch('http://localhost:5000/coffee')
+    errorElement: <Errorpage />,
+    loader: () => fetch('https://server-side-chi-seven.vercel.app/coffee')
   },
   {
     path: 'addcoffee',
-    element:<AddCoffee/>
+    element: <AddCoffee />
   },
   {
     path: '/updatecoffee/:id',
     element: <Updatecoffee />,
-    loader: ({ params }) => fetch(`http://localhost:5000/coffee/${params.id}`)
+    loader: ({ params }) => fetch(`https://server-side-chi-seven.vercel.app/coffee/${params.id}`)
   },
   {
     path: '/viewmore/:id',
     element: <ViewCard />,
-    loader: ({ params }) => fetch(`http://localhost:5000/coffee/${params.id}`)
+    loader: ({ params }) => fetch(`https://server-side-chi-seven.vercel.app/coffee/${params.id}`)
   },
   {
     path: '/users',
     element: <Users />,
-    loader: () => fetch('http://localhost:5000/users')
+    loader: () => fetch('https://server-side-chi-seven.vercel.app/users')
   },
   {
     path: '/signin',
-    element:<Signin/>
+    element: <Signin />
   },
   {
     path: '/login',
-    element:<Login/>
+    element: <Login />
   }
 ]);
 

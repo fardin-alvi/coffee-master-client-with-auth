@@ -7,9 +7,7 @@ import Footer from './Footer';
 
 const Updatecoffee = () => {
     const coffee = useLoaderData()
-    console.log(coffee);
-
-    const { _id} = coffee
+    const { _id } = coffee
 
     const handleupdate = (e) => {
         e.preventDefault()
@@ -24,7 +22,7 @@ const Updatecoffee = () => {
 
         const updatecoffee = { name, chef, supplier, taste, category, details, photo }
 
-        fetch(`http://localhost:5000/coffee/${_id}`, {
+        fetch(`https://server-side-chi-seven.vercel.app/coffee/${_id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -34,7 +32,6 @@ const Updatecoffee = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: 'Success!',
@@ -48,7 +45,7 @@ const Updatecoffee = () => {
     return (
         <div className='bg-addcard bg-cover bg-center'>
             <nav>
-                <Navbar/>
+                <Navbar />
             </nav>
             <Link to='/' className='w-8/12 mx-auto flex items-center gap-x-2 mt-4'><FaArrowLeftLong /><span className='text-xl'>Back to Home</span></Link>
             <div className="max-w-4xl mx-auto bg-[#F4F3F0] mt-10 p-10 rounded-lg shadow-md">

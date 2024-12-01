@@ -8,22 +8,20 @@ const Login = () => {
     const { singin } = useContext(AuthContext)
     const navigate = useNavigate()
 
-    const handlelogin = (event )=> {
+    const handlelogin = (event) => {
         event.preventDefault()
 
         const email = event.target.email.value;
-        const password = event.target.password.value; 
-
-        console.log(email,password);
+        const password = event.target.password.value;
 
         singin(email, password)
             .then(res => {
                 console.log(res.user)
-                navigate('/')
+                navigate('/users')
                 const lastSignInTime = res?.user?.metadata.lastSignInTime
                 const user = { email, lastSignInTime }
 
-                fetch('http://localhost:5000/users', {
+                fetch('https://server-side-chi-seven.vercel.app/users', {
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'
@@ -32,18 +30,18 @@ const Login = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                    console.log(data);
-                })
-                
+                        console.log(data);
+                    })
+
 
 
             })
-        .catch(err=>console.log(err.message))
+            .catch(err => console.log(err.message))
     }
     return (
         <div>
             <nav>
-                <Navbar/>
+                <Navbar />
             </nav>
             <div className="card bg-base-100 w-full mx-auto mt-10 max-w-sm shrink-0 shadow-2xl">
                 <form onSubmit={handlelogin} className="card-body">
@@ -63,12 +61,12 @@ const Login = () => {
                         </label>
                     </div>
                     <div className="form-control mt-6">
-                        <button  className="btn btn-primary">Log In</button>
+                        <button className="btn btn-primary">Log In</button>
                         <p className='text-center mt-5'>Don't Have an Account  <Link to='/signin' >Sign Up</Link></p>
                     </div>
                 </form>
             </div>
-            
+
         </div>
     );
 };

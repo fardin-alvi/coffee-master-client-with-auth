@@ -9,7 +9,7 @@ const AddCoffee = () => {
 
     const handleform = (e) => {
         e.preventDefault()
-        const form = e.target 
+        const form = e.target
         const name = form.name.value
         const chef = form.chef.value
         const supplier = form.supplier.value
@@ -19,9 +19,8 @@ const AddCoffee = () => {
         const photo = form.photo.value
 
         const coffeeuser = { name, chef, supplier, taste, category, details, photo }
-        console.log(coffeeuser);
 
-        fetch('http://localhost:5000/coffee', {
+        fetch('https://server-side-chi-seven.vercel.app/coffee', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -31,7 +30,6 @@ const AddCoffee = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.insertedId > 0) {
                     Swal.fire({
                         title: 'Success!',
@@ -41,13 +39,13 @@ const AddCoffee = () => {
                     })
                     form.reset();
                 }
-        })
+            })
     }
-    
+
     return (
         <div className='bg-addcard bg-cover bg-center'>
             <nav>
-                <Navbar/>
+                <Navbar />
             </nav>
             <Link to='/' className='w-8/12 mx-auto flex items-center gap-x-2 mt-4'><FaArrowLeftLong /><span className='text-xl'>Back to Home</span></Link>
             <div className="max-w-4xl mx-auto bg-[#F4F3F0] mt-10 p-10 rounded-lg shadow-md ">
@@ -113,7 +111,7 @@ const AddCoffee = () => {
                 </form>
             </div>
             <footer className='mt-10'>
-                <Footer/>
+                <Footer />
             </footer>
         </div>
     );

@@ -1,44 +1,45 @@
 import React, { useContext } from 'react';
 import Navbar from './Navbar';
 import { AuthContext } from '../AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Signin = () => {
     const { createuser } = useContext(AuthContext)
+
+    const navigate = useNavigate()
 
     const handlesignin = (e) => {
         e.preventDefault()
 
         const name = e.target.name.value
-        const email = e.target.email.value 
-        const password = e.target.password.value 
-        console.log(email, password);
-        
+        const email = e.target.email.value
+        const password = e.target.password.value
+
         createuser(email, password)
             .then(res => {
                 const createat = res.user.metadata.creationTime
-                const user = { name, email, createat}
-
+                const user = { name, email, createat }
                 console.log(res.user)
+                navigate('/users')
 
-                fetch('http://localhost:5000/users', {
+                fetch('https://server-side-chi-seven.vercel.app/users', {
                     method: 'POST',
                     headers: {
-                        'content-type':'application/json'
+                        'content-type': 'application/json'
                     },
                     body: JSON.stringify(user)
 
                 }).then(res => res.json())
                     .then(data => {
-                    console.log(data.user);
-                })
+                        console.log(data.user);
+                    })
             })
-        .catch(err=>console.log(err.message))
+            .catch(err => console.log(err.message))
     }
     return (
         <div>
             <nav>
-                <Navbar/>
+                <Navbar />
             </nav>
             <div className="card bg-base-100 w-full mx-auto mt-10 max-w-sm shrink-0 shadow-2xl">
                 <form onSubmit={handlesignin} className="card-body">

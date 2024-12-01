@@ -7,7 +7,6 @@ const Coffecard = ({ coffee, coffees, setcoffes }) => {
     const { _id, name, chef, supplier, taste, category, details, photo } = coffee
 
     const handledelete = (_id) => {
-        console.log(_id);
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -18,24 +17,23 @@ const Coffecard = ({ coffee, coffees, setcoffes }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/coffee/${_id}`, {
-                    method:'DELETE'
+                fetch(`https://server-side-chi-seven.vercel.app/coffee/${_id}`, {
+                    method: 'DELETE'
                 })
                     .then(res => res.json())
                     .then(data => {
                         if (data.deletedCount > 0) {
-                            console.log(data);
                             Swal.fire({
                                 title: "Deleted!",
                                 text: "Your file has been deleted.",
                                 icon: "success"
                             });
-                            
+
                             const remaining = coffees.filter(cof => cof._id != _id)
                             setcoffes(remaining)
 
-                    }
-                })
+                        }
+                    })
             }
         });
 
@@ -70,7 +68,7 @@ const Coffecard = ({ coffee, coffees, setcoffes }) => {
                     </Link>
 
                     {/* Delete Button */}
-                    <button onClick={()=>handledelete(_id)} className="btn btn-sm bg-red-500 text-white hover:bg-red-600 flex w-24 items-center gap-1">
+                    <button onClick={() => handledelete(_id)} className="btn btn-sm bg-red-500 text-white hover:bg-red-600 flex w-24 items-center gap-1">
                         <FaTrash /> Delete
                     </button>
                 </div>
